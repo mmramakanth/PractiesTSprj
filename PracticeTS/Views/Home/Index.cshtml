@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = null;
+}
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+<script src="~/Scripts/angular.min.js"></script>
+<script src="~/Scripts/angular-route.min.js"></script>
+<script src="~/Scripts/angular-ui-router.min.js"></script>
+<body ng-app="routerApp">
+
+    <!-- NAVIGATION -->
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" ui-sref="#">AngularUI Router</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a ui-sref="home">Home</a></li>
+            <li><a ui-sref="about">About</a></li>
+            <li><a href="Home/About">View About</a></li>
+        </ul>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+
+        <!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
+        <div ui-view></div>
+
+    </div>
+
+</body>
+<script>
+  
+    var routerApp = angular.module('routerApp', ['ui.router']);
+
+    routerApp.config(function ($stateProvider, $urlRouterProvider, $qProvider) {
+        $qProvider.errorOnUnhandledRejections(false);
+        $urlRouterProvider.otherwise('/home');
+
+        $stateProvider
+
+            // HOME STATES AND NESTED VIEWS ========================================
+            .state('home', {
+                url: '/home',
+                templateUrl: '/JSApp/Views/main.html',
+                controller: "UserListCtrl",
+                controllerAs: "vm"
+            })
+
+            // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
+            .state('about', {
+                url: '/about',
+                templateUrl: '/JSApp/Views/green.html'
+                // we'll get to this in a bit       
+            });
+
+    });
+    //var app = angular.module("myApp", ["routerApp"]);
+    //app.config(function ($routeProvider) {
+    //    $routeProvider
+    //    .when("/", {
+    //        templateUrl: "/JSApp/Views/main.html"
+    //    })
+    //    .when("/red", {
+    //        templateUrl: "/JSApp/Views/red.html"
+    //    })
+    //    .when("/green", {
+    //        templateUrl: "/JSApp/Views/green.html"
+    //    })
+       
+    //});
+
+    //routerApp.controller("UserListCtrl", function ($scope) {
+    //    $scope.testval = "fdsfdsf fsdfsd";
+    //});
+</script>
+<script src="~/JSApp/Controller/MainService.js"></script>
+<script src="~/JSApp/Controller/MainController.js">
+    </script>

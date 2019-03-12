@@ -1,0 +1,64 @@
+﻿body {
+}
+
+.full {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.navbar-brand {
+    background-image: url('/JSApp/Themes/Spauditor/Images/Logo_Color.png');
+    background-repeat: no-repeat;
+    background-attachment: local;
+    background-position: center center;
+    color: transparent;
+    font-weight: 600;
+    padding-right: 40px;
+    padding-left: 40px;
+    width: 300px;
+    height: 100px;
+}
+
+.login-logo-image {
+    margin-top: 25px;
+    height: 75px;
+}
+
+
+/* ibox */
+.ibox-content-left {
+    border-width: 0px;
+    background-color: transparent;
+    min-height: 475px;
+
+    color: #373737;
+}
+
+.ibox-content-right {
+    min-height: 475px;
+
+    border-radius: 0px;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 0px !important;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .active.btn-primary, .open .btn-primary.dropdown-toggle {
+    background-color: #6E9ECF;
+    border-color: #6E9ECF;
+}
+
+
+/* Modals */
+
+
+/* Form controls */
+.form-control:focus, .single-line:focus {
+    border-color: #6E9ECF;
+}
+
+

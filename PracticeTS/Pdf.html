@@ -1,0 +1,1085 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="JSApp/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="JSApp/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="JSApp/css/flags.css" rel="stylesheet" />
+    <link href="JSApp/css/flags_languages.css" rel="stylesheet" />
+    <link href="JSApp/css/bootstrap.min.css" rel="stylesheet">
+    <link href="JSApp/css/animate.css" rel="stylesheet">
+    <link href="JSApp/css/style.css" rel="stylesheet" id="loadBefore">
+    <!-- Bootstrap and Fonts -->
+    <!-- Main Inspinia CSS files -->
+
+    <style>
+        .overlay {
+            position: fixed;
+            z-index: 99;
+            top: 0;
+            left: 0;
+            background-color: #FFF;
+            width: 100%;
+            height: 100%;
+            filter: Alpha(Opacity=70);
+            opacity: .7;
+            -moz-opacity: .7;
+        }
+
+        * html .overlay {
+            position: absolute;
+            height: auto;
+            width: 100%;
+        }
+    </style>
+
+
+
+
+    <link href="JSApp/css/banner.development.css" rel="stylesheet" />
+    <link href="JSApp/Themes/Base/Site.css" rel="stylesheet" />
+    <link href="JSApp/Themes/Spauditor/site.css" rel="stylesheet" />
+    <link href="JSApp/css/ng-table.css" rel="stylesheet" />
+    <link href="JSApp/css/plugins/angular-loading-bar/loading-bar.css" rel="stylesheet" />
+    <link href="JSApp/css/plugins/iCheck/custom.css" rel="stylesheet" />
+
+
+    <!-- jQuery and Bootstrap -->
+    <script src="JSApp/js/jquery/jquery-2.1.1.min.js"></script>
+    <script src="JSApp/js/plugins/jquery-ui/jquery-ui.js"></script>
+    <script src="JSApp/js/bootstrap/bootstrap.min.js"></script>
+
+
+    <script src="JSApp/js/angular/angular.min.js"></script>
+    <script src="JSApp/js/angular/angular-sanitize.min.js"></script>
+    <script src="JSApp/js/plugins/oclazyload/dist/ocLazyLoad.min.js"></script>
+    <script src="JSApp/js/angular-translate/angular-translate.min.js"></script>
+    <script src="JSApp/js/angular-translate/angular-translate-loader-url.min.js"></script>
+    <script src="JSApp/js/angular-ui-router.min.js"></script>
+    <script src="JSApp/js/angular/angular-state-loader.js"></script>
+    <script src="JSApp/js/bootstrap/ui-bootstrap-tpls-1.1.2.min.js"></script>
+    <script src="JSApp/js/angular-local-storage.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+    <link href="JSApp/css/styles.css" rel="stylesheet" />
+    <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+    <title>Pdf</title>
+</head>
+<body ng-app="MyApp">
+    <div ng-controller="MyController">
+        <div class="container-fluid">
+            <div class="row reportpage">
+                <div class="col-md-12">
+                    <a href="">
+                        <!--<img src="JSApp/Themes/Spauditor/Images/thise-logo.jpg" title="" alt="" class="reportcompanylogo" />-->
+                        <img src="http://admintestreportingrepuance.azurewebsites.net/{{geninfo.company_logo}}" alt="" title="" class="reportcompanylogo" />
+                    </a>
+                </div>
+
+                <div class="col-md-12 reportpagecontent">
+                    <div class="bannerimage bannerimage1" style="background:linear-gradient(rgba(0, 0 ,0, .1), rgba(0, 0 ,0 , .1));" ng-style="reportbanners.topbannerpath != null && {'background-image':'url(../JSApp/Themes/Spauditor/images/Reportbanners/'+reportbanners.topbannerpath+'?'+repdate.getTime()+')'} || reportbanners.topbannerpath == null && {'background-image':'url(../JSApp/Themes/Spauditor/images/1110x400.jpg)'}">
+                        <h1>CSR Report</h1>
+                        <h3>{{geninfo.company_name}}&nbsp;{{geninfo.legal_form}}</h3>
+                        <h1>{{geninfo.startyear==geninfo.endyear?geninfo.startyear:geninfo.startyear+'/'+geninfo.endyear}}</h1><br />
+                    </div>
+
+                    <div class="col-md-8">
+
+                        <div ng-show="geninfo.statement!=null || geninfo.statement !=''">
+                            <h1> CEO Statement</h1>
+                        </div>
+                        <div>
+                            <h2>Communication On Progress {{geninfo.startyear==geninfo.endyear?geninfo.startyear:geninfo.startyear+'/'+geninfo.endyear}}</h2>
+                        </div>
+                        <br /> <div ng-bind-html="geninfo.statement" class="reporttext"></div>
+
+
+                    </div>
+                    <div class="col-md-4 rightside">
+
+
+
+                        <img src="JSApp/Themes/Spauditor/Images/logo-global_compact.jpg" width="280" height="265" alt="" title="" />
+
+
+
+                    </div><br clear="left" />
+                </div><br clear="left" /><br />
+                <!-- focus area starts here-->
+                <div class="col-md-12">
+                    <div class="bannerimage" style="background:linear-gradient(rgba(0, 0 ,0, .1), rgba(0, 0 ,0 , .1))," ng-style="reportbanners.focusbannerpath != null && {'background-image':'url(../JSApp/Themes/Spauditor/images/Reportbanners/'+reportbanners.focusbannerpath+'?'+repdate.getTime()+')'} || reportbanners.focusbannerpath == null && {'background-image':'url(../JSApp/Themes/Spauditor/Images/1110x400.jpg)'}">
+
+                    </div>
+                    <br />
+                    <div class="row focusareasection" ng-repeat="type in aspecttypes">
+                        <div class="col-md-8">
+                            <h1>{{type}}</h1>
+                            <div ng-if="type=='Environment'">
+                                <div ng-bind-html="focuasinfo.environment" class="reporttext"></div>
+                            </div>
+                            <div ng-if="type=='Social'">
+                                <div ng-bind-html="focuasinfo.social" class="reporttext"></div>
+                            </div>
+                            <div ng-if="type=='Human Rights'">
+                                <div ng-bind-html="focuasinfo.humanrights" class="reporttext"></div>
+                            </div>
+                            <div ng-if="type=='Anti Corruption'">
+                                <div ng-bind-html="focuasinfo.anticorruption" class="reporttext"></div>
+                            </div><br />
+                            <div ng-repeat="item in focuasinfo.listbyaspects">
+                                <div ng-if="item.aspecttype==type">
+                                    <div><h3>{{item.focuastitle}}</h3></div>
+                                    <div>{{item.introduction}}</div>
+                                    <h4>Strategy</h4>
+                                    <div ng-bind-html="item.strategy" class="reporttext"></div>
+                                    <br />
+
+                                    <h4>Risk</h4>
+                                    <div ng-bind-html="item.risk" class="reporttext"></div>
+                                    <br />
+
+                                    <h4>Action</h4>
+                                    <div ng-bind-html="item.action" class="reporttext"></div>
+                                    <br />
+
+                                    <h4>Goal</h4>
+                                    <div ng-bind-html="item.goal" class="reporttext"></div>
+                                    <br />
+
+                                    <h4>Result</h4>
+                                    <div ng-bind-html="item.result" class="reporttext"></div>
+                                    <br />
+
+                                    <h4>Evaluation</h4>
+                                    <div ng-bind-html="item.evaluation" class="reporttext"></div>
+                                    <br />
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div ng-repeat="dashitem in focuasinfo.listbyaspects">
+                            <div ng-if="dashitem.aspecttype==type">
+                                <div class="col-md-4 pull-right ">
+                                    <div ng-show="dashitem.watershow">
+                                        <div class="col-md-12 rightside headmain" ng-class="dashitem.watershow==true?'reportpagefocusfirst':''">
+                                            <div class="head1"><b>Water consumption:</b></div><br />
+                                            <img src="JSApp/Themes/Spauditor/images/icon-waterconsumption.png" class="reporticons" /><br />
+                                            Index for water consumption {{dashboardinfo.waterdash.kpiyear}}<br />
+                                            <div class="values">{{dashboardinfo.waterdash.indexval}}</div><br />
+                                            KPI for {{dashboardinfo.waterdash.kpiyear}}<br />
+                                            <div class="values">{{dashboardinfo.waterdash.kpipr}}% </div><br />
+                                            {{dashboardinfo.waterdash.kpiyear}} status for water consumption<br /><br />
+                                            <img ng-src="{{dashboardinfo.waterdash.indexval<100?'../JSApp/Themes/Spauditor/images/icon-success.png':'../JSApp/Themes/Spauditor/images/icon-descucess.png'}}" class="reporticons">
+                                        </div>
+                                    </div>
+                                    <div ng-show="dashitem.sickshow">
+                                        <div class="col-md-12 rightside headmain" ng-class="dashitem.watershow==false?'reportpagefocusfirst':''">
+                                            <div class="head1">
+                                                <b>Sick leave :</b>
+                                            </div><br />
+                                            <img src="JSApp/Themes/Spauditor/images/icon-sickleave.png" class="reporticons" /><br />
+                                            Index for Sick leave {{dashboardinfo.sickleavedash.kpiyear}}<br />
+                                            <div class="values">
+                                                {{dashboardinfo.sickleavedash.indexval}}
+                                            </div><br />
+                                            KPI for {{dashboardinfo.sickleavedash.kpiyear}}<br />
+                                            <div class="values">
+                                                {{dashboardinfo.sickleavedash.kpipr}}%
+                                            </div><br />
+                                            Working Percentage<br />
+                                            <img src="JSApp/Themes/Spauditor/images/img-sickleave.png" class="reporticons" alt="Sick leave" /><br />
+                                            {{dashboardinfo.sickleavedash.kpiyear}} status for water consumption<br />
+                                            <div class="values">
+                                                {{dashboardinfo.sickleavedash.wrkingpr==null?0:dashboardinfo.sickleavedash.wrkingpr}}%
+                                            </div><br />
+                                            <img ng-src="{{dashboardinfo.sickleavedash.indexval<100?'../JSApp/Themes/Spauditor/images/icon-success.png':'../JSApp/Themes/Spauditor/images/icon-descucess.png'}}" class="reporticons">
+                                        </div>
+                                    </div>
+                                    <div ng-show="dashitem.electricityshow">
+                                        <div class="col-md-12 rightside headmain" ng-class="dashitem.watershow==false &&  dashitem.sickshow==false?'reportpagefocusfirst':''">
+                                            <div class="head1">
+                                                <b>Energy consumpt Electricity</b>
+                                            </div><br />
+                                            <img src="JSApp/Themes/Spauditor/images/icon-energy-consumpt.png" class="reporticons" /><br />
+                                            Index for electricity consumption {{dashboardinfo.electricitydash.kpiyear}}<br />
+                                            <div class="values">
+                                                {{dashboardinfo.electricitydash.indexval}}
+                                            </div><br />
+                                            KPI for {{dashboardinfo.electricitydash.kpiyear}}<br />
+                                            <div class="values">
+                                                {{dashboardinfo.electricitydash.kpipr}}%
+                                            </div><br />
+                                            {{dashboardinfo.electricitydash.kpiyear}} status for electricity consumption<br /><br />
+                                            <img ng-src="{{dashboardinfo.electricitydash.indexval<100?'../JSApp/Themes/Spauditor/images/icon-success.png':'../JSApp/Themes/Spauditor/images/icon-descucess.png'}}" class="reporticons">
+                                        </div>
+                                    </div>
+                                    <div ng-show="dashitem.antibioticshow">
+                                        <div class="col-md-12 rightside headmain" ng-class="dashitem.watershow==false &&  dashitem.sickshow==false && dashitem.electricityshow==false?'reportpagefocusfirst':''">
+                                            <div class="head1"><b>Antibiotic:</b></div><br />
+                                            <img src="JSApp/Themes/Spauditor/images/icon-antibiotic.png" width="48" height="48" /><br />
+                                            Index for antibiotic {{dashboardinfo.antibioticdash.kpiyear}}<br />
+                                            <div class="values">{{dashboardinfo.antibioticdash.indexval}}</div><br />
+                                            KPI for {{dashboardinfo.antibioticdash.kpiyear}}<br />
+                                            <div class="values">{{dashboardinfo.antibioticdash.kpipr}}% </div><br />
+                                            {{dashboardinfo.antibioticdash.kpiyear}} status for antibiotic <br /><br />
+                                            <img ng-src="{{dashboardinfo.antibioticdash.indexval<100?'../JSApp/Themes/Spauditor/images/icon-success.png':'../JSApp/Themes/Spauditor/images/icon-descucess.png'}}" class="reporticons">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><br clear="left" /><br />
+                    <!-- focus area ends here-->
+                    <!-- water area starts here-->
+                    <div class="bannerimage" style="background:linear-gradient(rgba(0, 0 ,0, .1), rgba(0, 0 ,0 , .1)),;" ng-style="reportbanners.databannerpath != null && {'background-image':'url(../JSApp/Themes/Spauditor/images/Reportbanners/'+reportbanners.databannerpath+'?'+repdate.getTime()+')'} || reportbanners.databannerpath == null && {'background-image':'url(../JSApp/Themes/Spauditor/images/1110x400.jpg)'}">
+                        <div class="endbannerbg">
+                            Li Europan lingues es membres del sam familie.
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+
+                        <div class="col-md-8">
+                            <h1>Appendix</h1>
+                            <div ng-show="rawmaterial.tabledata.length>0 || assosiatedmaterialdatasummary.tabledata.length>0 || materialpackaging.tabledata.length>0 || activesubstances.tabledata.length>0">
+                                <h2><b>Materials</b></h2>
+                            </div>
+                            <div ng-show="rawmaterial.tabledata.length>0">
+                                <h3>Raw Materials <span ng-show="rawmaterial.reference_code!=null">({{rawmaterial.reference_code}})</span> </h3>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+
+                                            <td></td>
+                                            <td ng-repeat="years in  rawmaterial.tabledata[0]['yeardata']| orderBy: 'year'">
+                                                {{years.year_label}}
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-repeat="values in rawmaterial.tabledata">
+                                        <tr>
+                                            <td>
+                                                {{values.type}}
+                                            </td>
+                                            <td ng-repeat="testdat in values.yeardata | orderBy: 'year'">
+                                                <div ng-if="testdat.value!=0">{{testdat.value| number}}</div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="col-md-12 nopadding">
+                                    <div class="graphborder graphright"> <div id="rawmaterial_chart" class="totalgraph"></div></div>
+
+                                    <div ng-repeat="comment in qcomments">
+                                        <div ng-if="comment.question_id=='13f7f856-f4c6-4f89-8ef7-2ce21f27489d'">
+                                            <strong>Comments</strong><br />
+                                            <div ng-bind-html="comment.rawmaterialcmt"></div>
+                                        </div>
+                                    </div>
+
+                                    <br /><br /><br clear="left" />
+                                </div>
+                            </div>
+                            <div ng-show="assosiatedmaterialdatasummary.tabledata.length>0">
+                                <br /><br clear="left" />
+
+                                <h3>Associated Proces Materials <span ng-show="assosiatedmaterialdatasummary.reference_code!=null">({{assosiatedmaterialdatasummary.reference_code}})</span></h3>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td></td>
+                                            <td ng-repeat="years in  assosiatedmaterialdatasummary.tabledata[0]['yeardata']| orderBy: 'year'">
+                                                {{years.year_label}}
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-repeat="values in assosiatedmaterialdatasummary.tabledata">
+                                        <tr>
+                                            <td>
+                                                {{values.type}}
+                                            </td>
+                                            <td ng-repeat="testdat in values.yeardata | orderBy: 'year'">
+                                                <div ng-if="testdat.value!=0">{{testdat.value| number}}</div>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="col-md-12 nopadding">
+                                    <div class="graphborder graphright"> <div id="assosiatedmaterialdatasummary_chart" class="totalgraph"></div></div>
+
+                                    <div ng-repeat="comment in qcomments">
+                                        <div ng-if="comment.question_id=='d182b744-8813-4962-a644-0723d5cc3f6b'">
+                                            <strong>Comments</strong><br />
+                                            <div ng-bind-html="comment.assosiatedmaterialcmt"></div>
+                                        </div>
+                                    </div>
+                                    <br /><br /><br clear="left" />
+                                </div>
+
+                            </div>
+                            <div ng-show="materialpackaging.tabledata.length>0">
+                                <br /><br />
+                                <h3>Materials for Packaging Purposes <span ng-show="materialpackaging.reference_code!=null">({{materialpackaging.reference_code}})</span></h3>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td></td>
+                                            <td ng-repeat="years in  materialpackaging.tabledata[0]['yeardata']| orderBy: 'year'">
+                                                {{years.year_label}}
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-repeat="values in materialpackaging.tabledata">
+                                        <tr>
+                                            <td>
+                                                {{values.type}}
+                                            </td>
+                                            <td ng-repeat="testdat in values.yeardata | orderBy: 'year'">
+                                                <div ng-if="testdat.value!=0">{{testdat.value| number}}</div>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="col-md-12 nopadding">
+                                    <div class="graphborder graphright"> <div id="materialpackaging_chart" class="totalgraph"></div></div>
+
+                                    <div ng-repeat="comment in qcomments">
+                                        <div ng-if="comment.question_id=='cbcf456c-ce24-4e6a-a09d-dcf64a029818'">
+                                            <strong>Comments</strong><br />
+                                            <div ng-bind-html="comment.materialpackagecmt"></div>
+                                        </div>
+                                    </div>
+                                    <br /><br /><br clear="left" />
+                                </div>
+                            </div>
+                            <div ng-show="antibiotic.tabledata.length>0">
+                                <br /><br />
+                                <h3>Antibiotic <span ng-show="antibiotic.reference_code!=null">({{antibiotic.reference_code}})</span></h3>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td></td>
+                                            <td ng-repeat="years in  antibiotic.tabledata[0]['yeardata']| orderBy: 'year'">
+                                                {{years.year_label}}
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-repeat="values in antibiotic.tabledata">
+                                        <tr>
+                                            <td>
+                                                {{values.type}}
+                                            </td>
+                                            <td ng-repeat="testdat in values.yeardata | orderBy: 'year'">
+                                                <div ng-if="testdat.value!=0">{{testdat.value| number}}</div>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="col-md-12 nopadding">
+                                    <div class="graphborder graphright"> <div id="antibiotic_chart" class="totalgraph"></div></div>
+
+                                    <div ng-repeat="comment in qcomments">
+                                        <div ng-if="comment.question_id=='69cb4837-07d1-4c07-b78c-69eaa312967d'">
+                                            <strong>Comments</strong><br />
+                                            <div ng-bind-html="comment.antibioticcomment"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br /><br /><br clear="left" />
+                            </div><br /><br />
+                            <div ng-show="activesubstances.tabledata.length>0">
+
+                                <h3>Active Substances (Cleaning) <span ng-show="activesubstances.reference_code!=null">({{activesubstances.reference_code}})</span></h3>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td></td>
+                                            <td ng-repeat="years in  activesubstances.tabledata[0]['yeardata']| orderBy: 'year'">
+                                                {{years.year_label}}
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-repeat="values in activesubstances.tabledata">
+                                        <tr>
+                                            <td>
+                                                {{values.type}}
+                                            </td>
+                                            <td ng-repeat="testdat in values.yeardata | orderBy: 'year'">
+                                                <div ng-if="testdat.value!=0">{{testdat.value| number}}</div>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="col-md-12 nopadding">
+                                    <div class="graphborder graphright"> <div id="activesubstances_chart" class="totalgraph"></div></div>
+
+                                    <div ng-repeat="comment in qcomments">
+                                        <div ng-if="comment.question_id=='925dba1d-c020-4034-ad9d-b85e3d6bc929'">
+                                            <strong>Comments</strong><br />
+                                            <div ng-bind-html="comment.activesubcmt"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br /><br /><br clear="left" />
+                            </div>
+                            <div ng-show="dieaseldatasummary.tabledata.length>0 || naturalgasdatasummary.tabledata.length>0 || heatingoildatasummary.tabledata.length>0 || electrictydatasummary.tabledata.length>0">
+                                <h2><b>Energy</b></h2>
+                            </div>
+                            <div ng-show="dieaseldatasummary.tabledata.length>0">
+                                <h3>Diesel Consumption (Non-renewable source) <span ng-show="dieaseldatasummary.reference_code!=null">({{dieaseldatasummary.reference_code}})</span> </h3>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td></td>
+                                            <td ng-repeat="years in  dieaseldatasummary.tabledata[0]['yeardata']| orderBy: 'year'">
+                                                {{years.year_label}}
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-repeat="values in dieaseldatasummary.tabledata">
+                                        <tr>
+                                            <td>
+                                                {{values.type}}
+                                            </td>
+                                            <td ng-repeat="testdat in values.yeardata | orderBy: 'year'">
+                                                <div ng-if="testdat.value!=0">{{testdat.value| number}}</div>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="col-md-12 nopadding">
+                                    <div class="graphborder graphright"> <div id="dieaseldatasummary_chart" class="totalgraph"></div></div>
+
+                                    <div ng-repeat="comment in qcomments">
+                                        <div ng-if="comment.question_id=='259813ce-a626-4e24-bcb5-a5f43c8d7a58'">
+                                            <strong>Comments</strong><br />
+                                            <div ng-bind-html="comment.dieselcmt"></div>
+                                        </div>
+                                    </div>
+                                    <br /><br /><br clear="left" />
+                                </div>
+                            </div>
+                            <div ng-show="naturalgasdatasummary.tabledata.length>0">
+                                <br /><br />
+                                <h3>Natural Gas Consumption (Non-renewable source) <span ng-show="naturalgasdatasummary.reference_code!=null">({{naturalgasdatasummary.reference_code}})</span></h3>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td></td>
+                                            <td ng-repeat="years in  naturalgasdatasummary.tabledata[0]['yeardata']| orderBy: 'year'">
+                                                {{years.year_label}}
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-repeat="values in naturalgasdatasummary.tabledata">
+                                        <tr>
+                                            <td>
+                                                {{values.type}}
+                                            </td>
+                                            <td ng-repeat="testdat in values.yeardata | orderBy: 'year'">
+                                                <div ng-if="testdat.value!=0">{{testdat.value| number}}</div>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="col-md-12 nopadding">
+                                    <div class="graphborder graphright"> <div id="naturalgasdatasummary_chart" class="totalgraph"></div></div>
+                                    <div ng-repeat="comment in qcomments">
+                                        <div ng-if="comment.question_id=='040d4637-5d8e-4bc0-b444-6273591368e0'">
+                                            <strong>Comments</strong><br />
+                                            <div ng-bind-html="comment.naturalgascmt"></div>
+                                        </div>
+                                    </div>
+                                    <br /><br /><br clear="left" />
+                                </div>
+
+                            </div>
+
+                            <div ng-show="heatingoildatasummary.tabledata.length>0">
+                                <br /><br />
+                                <h3>Heating Oil Consumption (Non-renewable source) <span ng-show="heatingoildatasummary.reference_code!=null">({{heatingoildatasummary.reference_code}})</span></h3>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td></td>
+                                            <td ng-repeat="years in  heatingoildatasummary.tabledata[0]['yeardata']| orderBy: 'year'">
+                                                {{years.year_label}}
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-repeat="values in heatingoildatasummary.tabledata">
+                                        <tr>
+                                            <td>
+                                                {{values.type}}
+                                            </td>
+                                            <td ng-repeat="testdat in values.yeardata | orderBy: 'year'">
+                                                <div ng-if="testdat.value!=0">{{testdat.value| number}}</div>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="col-md-12 nopadding">
+                                    <div class="graphborder graphright"> <div id="heatingoildatasummary_chart" class="totalgraph"></div></div>
+
+                                    <div ng-repeat="comment in qcomments">
+                                        <div ng-if="comment.question_id=='a1d1d175-0098-4ea5-a20f-bbf36469fca3'">
+                                            <strong>Comments</strong><br />
+                                            <div ng-bind-html="comment.heatingoilcmt"></div>
+                                        </div>
+                                    </div>
+                                    <br /><br /><br clear="left" />
+                                </div>
+                            </div>
+
+                            <div ng-show="electrictydatasummary.tabledata.length>0">
+                                <br /><br />
+                                <h3>Electricity  Consumption (Renewable/Non Renewable) <span ng-show="electrictydatasummary.reference_code!=null">({{electrictydatasummary.reference_code}})</span></h3>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td></td>
+                                            <td ng-repeat="years in  electrictydatasummary.tabledata[0]['yeardata']| orderBy: 'year'">
+                                                {{years.year_label}}
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-repeat="values in electrictydatasummary.tabledata">
+                                        <tr>
+                                            <td>
+                                                {{values.type}}
+                                            </td>
+                                            <td ng-repeat="testdat in values.yeardata | orderBy: 'year'">
+                                                <div ng-if="testdat.value!=0">{{testdat.value| number}}</div>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="col-md-12 nopadding">
+                                    <div class="graphborder graphright"> <div id="electrictydatasummary_chart" class="totalgraph"></div></div>
+
+                                    <div ng-repeat="comment in qcomments">
+                                        <div ng-if="comment.question_id=='efdbb373-9608-405b-8b98-c8b4697000a9'">
+                                            <strong>Comments</strong><br />
+                                            <div ng-bind-html="comment.electricitycmt"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br /><br /><br clear="left" />
+                            </div><br /><br />
+                            <div ng-show="waterdatasummary.tabledata.length>0">
+                                <h2><b>Water</b></h2>
+                            </div>
+                            <div ng-show="waterdatasummary.tabledata.length>0">
+                                <h3>Total Volume of Water Withdrawn from the Following Sources <span ng-show="waterdatasummary.reference_code!=null">({{waterdatasummary.reference_code}})</span></h3>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td></td>
+                                            <td ng-repeat="years in  waterdatasummary.tabledata[0]['yeardata']| orderBy: 'year'">
+                                                {{years.year_label}}
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-repeat="values in waterdatasummary.tabledata">
+                                        <tr>
+                                            <td>
+                                                {{values.type}}
+                                            </td>
+                                            <td ng-repeat="testdat in values.yeardata | orderBy: 'year'">
+                                                <div ng-if="testdat.value!=0">{{testdat.value| number}}</div>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="col-md-12 nopadding">
+                                    <div class="graphborder graphright"> <div id="waterdatasummary_chart" class="totalgraph"></div></div>
+
+                                    <div ng-repeat="comment in qcomments">
+                                        <div ng-if="comment.question_id=='48293ea7-f575-4b96-81ae-fa3dc6c64783'">
+                                            <strong>Comments</strong><br />
+                                            <div ng-bind-html="comment.waterconsumptioncmt"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br /><br /><br clear="left" />
+                            </div><br /><br />
+                            <div ng-show="airemission.tabledata.length>0 || waterdischargesummary.tabledata.length>0 || solidwastedatasummary.tabledata.length>0 || spills.tabledata.length>0">
+                                <h2><b>Waste</b></h2>
+                            </div>
+                            <div ng-show="airemission.tabledata.length>0">
+                                <h3>NOx, SOx, And Other Siginificant Air Emissions <span ng-show="airemission.reference_code!=null">({{airemission.reference_code}})</span></h3>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td></td>
+                                            <td ng-repeat="years in  airemission.tabledata[0]['yeardata']| orderBy: 'year'">
+                                                {{years.year_label}}
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-repeat="values in airemission.tabledata">
+                                        <tr>
+                                            <td>
+                                                {{values.type}}
+                                            </td>
+                                            <td ng-repeat="testdat in values.yeardata | orderBy: 'year'">
+                                                <div ng-if="testdat.value!=0">{{testdat.value| number}}</div>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="col-md-12 nopadding">
+                                    <div class="graphborder graphright"> <div id="airemission_chart" class="totalgraph"></div></div>
+
+                                    <div ng-repeat="comment in qcomments">
+                                        <div ng-if="comment.question_id=='40f215b0-7d38-400a-acc9-f11050f45947'">
+                                            <strong>Comments</strong><br />
+                                            <div ng-bind-html="comment.airemissionscmt"></div>
+                                        </div>
+                                    </div>
+                                    <br /><br /><br clear="left" />
+                                </div>
+                            </div>
+                            <div ng-show="waterdischargesummary.tabledata.length>0">
+                                <br /><br />
+
+                                <h3>Total Water Discharge By Quality And Destination <span ng-show="waterdischargesummary.reference_code!=null">({{waterdischargesummary.reference_code}})</span></h3>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td></td>
+                                            <td ng-repeat="years in  waterdischargesummary.tabledata[0]['yeardata']| orderBy: 'year'">
+                                                {{years.year_label}}
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-repeat="values in waterdischargesummary.tabledata">
+                                        <tr>
+                                            <td>
+                                                {{values.type}}
+                                            </td>
+                                            <td ng-repeat="testdat in values.yeardata | orderBy: 'year'">
+                                                <div ng-if="testdat.value!=0">{{testdat.value| number}}</div>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="col-md-12 nopadding">
+                                    <div class="graphborder graphright"> <div id="waterdischargesummary_chart" class="totalgraph"></div></div>
+
+                                    <div ng-repeat="comment in qcomments">
+                                        <div ng-if="comment.question_id=='b5f955f8-c171-4832-8a77-681256f08a95'">
+                                            <strong>Comments</strong><br />
+                                            <div ng-bind-html="comment.waterdischargescmt"></div>
+                                        </div>
+                                    </div>
+                                    <br /><br /><br clear="left" />
+                                </div>
+                            </div>
+
+                            <div ng-show="solidwastedatasummary.tabledata.length>0">
+                                <br /><br />
+                                <h3>Total Weight of Hazardous and Non-Hazardous Waste by Type and Disposal Method  <span ng-show="solidwastedatasummary.reference_code!=null">({{solidwastedatasummary.reference_code}})</span></h3>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td></td>
+                                            <td ng-repeat="years in  solidwastedatasummary.tabledata[0]['yeardata']| orderBy: 'year'">
+                                                {{years.year_label}}
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-repeat="values in solidwastedatasummary.tabledata">
+                                        <tr>
+                                            <td>
+                                                {{values.type}}
+                                            </td>
+                                            <td ng-repeat="testdat in values.yeardata | orderBy: 'year'">
+                                                <div ng-if="testdat.value!=0">{{testdat.value| number}}</div>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="col-md-12 nopadding">
+                                    <div class="graphborder graphright"> <div id="solidwastedatasummary_chart" class="totalgraph"></div></div>
+
+                                    <div ng-repeat="comment in qcomments">
+                                        <div ng-if="comment.question_id=='39d2bd23-5f98-42ce-a67f-00e9538ff1a4'">
+                                            <strong>Comments</strong><br />
+                                            <div ng-bind-html="comment.solidwastecmt"></div>
+                                        </div>
+                                    </div>
+                                    <br /><br /><br clear="left" />
+                                </div>
+                            </div>
+                            <div ng-show="spills.tabledata.length>0">
+                                <br /><br />
+                                <h3>Total Number and Volume of Significant Spills <span ng-show="spills.reference_code!=null">({{spills.reference_code}})</span></h3>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td></td>
+                                            <td ng-repeat="years in  spills.tabledata[0]['yeardata']| orderBy: 'year'">
+                                                {{years.year_label}}
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-repeat="values in spills.tabledata">
+                                        <tr>
+                                            <td>
+                                                {{values.type}}
+                                            </td>
+                                            <td ng-repeat="testdat in values.yeardata | orderBy: 'year'">
+                                                <div ng-if="testdat.value!=0">{{testdat.value| number}}</div>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="col-md-12 nopadding">
+                                    <div class="graphborder graphright"> <div id="spills_chart" class="totalgraph"></div></div>
+
+                                    <div ng-repeat="comment in qcomments">
+                                        <div ng-if="comment.question_id=='adfe49b8-7726-4581-b8b9-0d304131f187'">
+                                            <strong>Comments</strong><br />
+                                            <div ng-bind-html="comment.spillscmt"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br /><br /><br clear="left" />
+                            </div><br /><br />
+                            <div ng-show="producedunits.tabledata.length>0 ">
+                                <h2><b>Production</b></h2>
+                            </div>
+                            <div ng-show="producedunits.tabledata.length>0">
+                                <h3>Total Amount of Produced Units by Unit <span ng-show="producedunits.reference_code!=null">({{producedunits.reference_code}})</span></h3>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td></td>
+                                            <td ng-repeat="years in  producedunits.tabledata[0]['yeardata']| orderBy: 'year'">
+                                                {{years.year_label}}
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-repeat="values in producedunits.tabledata">
+                                        <tr>
+                                            <td>
+                                                {{values.type}}
+                                            </td>
+                                            <td ng-repeat="testdat in values.yeardata | orderBy: 'year'">
+                                                <div ng-if="testdat.value!=0">{{testdat.value| number}}</div>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div ng-repeat="comment in qcomments">
+                                    <div ng-if="comment.question_id=='3de24253-ea4e-49d8-af98-63ef3b874021'">
+                                        <strong>Comments</strong><br />
+                                        <div ng-bind-html="comment.producedunitcmt"></div>
+                                    </div>
+                                </div>
+                                <br /><br />
+                            </div>
+
+                            <br clear="left" /><br clear="left" />
+                        </div>
+                        <div class="col-md-4"></div>
+                    </div>
+                    <div class="col-md-12">
+
+                        <div class="col-md-8">
+                            <div ng-show="emissionsdata.length>0 || emissionheatandnatural.length>0 || emissiondieselupdown.length>0 || emissionco2equivalents.length>0 || nitrogenemissions.length>0 || acidifyinggasses.length>0 || tspemissions.length>0">
+                                <h1>Emissions</h1>
+                            </div>
+                            <div ng-show="emissionsdata.length>0">
+
+                                <h3>Total Gas emissions</h3>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td></td>
+                                            <td ng-repeat="years in  emissionsdata[0]['yeardata']| orderBy: 'year'">
+                                                {{years.year_label}}
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-repeat="emissiom in emissionsdata">
+                                        <tr>
+                                            <td>
+                                                {{emissiom.type}}
+                                            </td>
+                                            <td ng-repeat="data in emissiom.yeardata | orderBy: 'year'">
+                                                <div ng-if="data.value!=0">{{data.value| number}}</div>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div>
+                                    <div ng-repeat="comment in qcomments">
+                                        <div ng-if="comment.question_id=='e988f6f8-746c-4958-93fc-6af6344d62bc'">
+                                            <strong>Comments</strong><br />
+                                            <div ng-bind-html="comment.totalgasemissioncmt"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-show="emissionheatandnatural.length>0">
+                                <br />
+                                <h3>Heating Oil & Natural Gas</h3>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td></td>
+                                            <td ng-repeat="years in  emissionheatandnatural[0]['yeardata']| orderBy: 'year'">
+                                                {{years.year_label}}
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-repeat="emissiom in emissionheatandnatural">
+                                        <tr>
+                                            <td>
+                                                {{emissiom.type}}
+                                            </td>
+                                            <td ng-repeat="data in emissiom.yeardata | orderBy: 'year'">
+                                                <div ng-if="data.value!=0">{{data.value| number}}</div>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div>
+                                    <div ng-repeat="comment in qcomments">
+                                        <div ng-if="comment.question_id=='6d21b83f-ac51-4238-99d6-96089595604a'">
+                                            <strong>Comments</strong><br />
+                                            <div ng-bind-html="comment.naturalandheatingcmt"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-show="emissiondieselupdown.length>0">
+                                <br />
+                                <h3>Diesel Up- and Downstream</h3>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td></td>
+                                            <td ng-repeat="years in  emissiondieselupdown[0]['yeardata']| orderBy: 'year'">
+                                                {{years.year_label}}
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-repeat="emissiom in emissiondieselupdown">
+                                        <tr>
+                                            <td>
+                                                {{emissiom.type}}
+                                            </td>
+                                            <td ng-repeat="data in emissiom.yeardata | orderBy: 'year'">
+                                                <div ng-if="data.value!=0">{{data.value| number}}</div>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div>
+                                    <div ng-repeat="comment in qcomments">
+                                        <div ng-if="comment.question_id=='e0e5b545-a869-4b05-88e0-b9c1b3babe30'">
+                                            <strong>Comments</strong><br />
+                                            <div ng-bind-html="comment.dieselupdowmcmt"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-show="emissionco2equivalents.length>0">
+                                <br />
+                                <h3>CO2 & CO2 Equivalents</h3>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td></td>
+                                            <td ng-repeat="years in  emissionco2equivalents[0]['yeardata']| orderBy: 'year'">
+                                                {{years.year_label}}
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-repeat="emissiom in emissionco2equivalents">
+                                        <tr>
+                                            <td>
+                                                {{emissiom.type}}
+                                            </td>
+                                            <td ng-repeat="data in emissiom.yeardata | orderBy: 'year'">
+                                                <div ng-if="data.value!=0">{{data.value| number}}</div>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div>
+                                    <div ng-repeat="comment in qcomments">
+                                        <div ng-if="comment.question_id=='faa36839-a2d0-4e49-97b4-7c287fb9ec06'">
+                                            <strong>Comments</strong><br />
+                                            <div ng-bind-html="comment.co2andco2cmt"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-show="nitrogenemissions.length>0">
+                                <br />
+                                <h3>Nitrogen emissions</h3>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td></td>
+                                            <td ng-repeat="years in  nitrogenemissions[0]['yeardata']| orderBy: 'year'">
+                                                {{years.year_label}}
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-repeat="emissiom in nitrogenemissions">
+                                        <tr>
+                                            <td>
+                                                {{emissiom.type}}
+                                            </td>
+                                            <td ng-repeat="data in emissiom.yeardata | orderBy: 'year'">
+                                                <div ng-if="data.value!=0">{{data.value| number}}</div>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div>
+                                    <div ng-repeat="comment in qcomments">
+                                        <div ng-if="comment.question_id=='ce02c9ab-3dde-46cf-b65a-14848aff1749'">
+                                            <strong>Comments</strong><br />
+                                            <div ng-bind-html="comment.nitrogencmt"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-show="acidifyinggasses.length>0">
+                                <br />
+                                <h3>Acidifying gasses</h3>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td></td>
+                                            <td ng-repeat="years in  acidifyinggasses[0]['yeardata']| orderBy: 'year'">
+                                                {{years.year_label}}
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-repeat="emissiom in acidifyinggasses">
+                                        <tr>
+                                            <td>
+                                                {{emissiom.type}}
+                                            </td>
+                                            <td ng-repeat="data in emissiom.yeardata | orderBy: 'year'">
+                                                <div ng-if="data.value!=0">{{data.value| number}}</div>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div>
+                                    <div ng-repeat="comment in qcomments">
+                                        <div ng-if="comment.question_id=='51883c91-6ce5-40c2-b7e4-e29087efbf2e'">
+                                            <strong>Comments</strong><br />
+                                            <div ng-bind-html="comment.acidifyingcmt"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-show="tspemissions.length>0">
+                                <br />
+                                <h3>TSP Emissions</h3>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td></td>
+                                            <td ng-repeat="years in  tspemissions[0]['yeardata']| orderBy: 'year'">
+                                                {{years.year_label}}
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-repeat="emissiom in tspemissions">
+                                        <tr>
+                                            <td>
+                                                {{emissiom.type}}
+                                            </td>
+                                            <td ng-repeat="data in emissiom.yeardata | orderBy: 'year'">
+                                                <div ng-if="data.value!=0">{{data.value| number}}</div>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div>
+                                    <div ng-repeat="comment in qcomments">
+                                        <div ng-if="comment.question_id=='0275e041-309d-4882-bfe5-e3c35e907198'">
+                                            <strong>Comments</strong><br />
+                                            <div ng-bind-html="comment.tspemissioncmt"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- water area ends here-->
+                    </div>
+                    <div class="col-md-12">
+                        <h1>Accountant</h1>
+
+                        <div ng-show="reportbanners.checkaccountant">
+                            <h4>Approved</h4>
+                        </div>
+                        <div ng-show="!reportbanners.checkaccountant">
+                            <h4>Not Approved</h4>
+                        </div>
+                        <div>
+                            <div ng-bind-html="reportbanners.accountant"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="display:none;">
+                <input type="hidden" id="waterdischargesummary_hid" />
+                <input type="hidden" id="waterdatasummary_hid" />
+                <input type="hidden" id="assosiatedmaterialdatasummary_hid" />
+                <input type="hidden" id="dieaseldatasummary_hid" />
+                <input type="hidden" id="electrictydatasummary_hid" />
+                <input type="hidden" id="heatingoildatasummary_hid" />
+                <input type="hidden" id="materialpackaging_hid" />
+                <input type="hidden" id="naturalgasdatasummary_hid" />
+                <input type="hidden" id="rawmaterial_hid" />
+                <input type="hidden" id="solidwastedatasummary_hid" />
+                <input type="hidden" id="airemission_hid" />
+                <input type="hidden" id="spills_hid" />
+                <input type="hidden" id="activesubstances_hid" />
+                <input type="hidden" id="producedunits_hid" />
+                <input type="hidden" id="antibiotic_hid" />
+                <input type="button" id="btnchart" value="Click" />
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script src="ConvertPdf/Pdf.js"></script>

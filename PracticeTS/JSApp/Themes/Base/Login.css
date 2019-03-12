@@ -1,0 +1,41 @@
+﻿body {
+}
+
+.full {
+    background: url('Images/Login_background.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.login-logo-image {
+    margin-top: 25px;
+    height: 75px;
+}
+
+.line-thru {
+    content: '';
+    margin: 1em 0;
+    display: block;
+    font-size: 0.87em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+    z-index: 1;
+}
+
+.ibox-content-left {
+    border-width: 0px;
+    background-color: transparent;
+    min-height: 475px;
+}
+
+.ibox-content-right {
+    min-height: 475px;
+
+    border-radius: 4px;
+}

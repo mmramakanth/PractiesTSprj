@@ -1,0 +1,94 @@
+
+
+body {
+    background-color: #2D4551;
+    /*border-top: 3px solid #2D4551;*/
+}
+
+#page-wrapper {
+    background-color: #f3f3f4;
+}
+
+.nav-header {
+    background-image: none;
+    padding: 15px 25px;
+}
+
+.profile-element {
+    background-image: url('/Themes/APValue/Images/Logo.png');
+    background-repeat: no-repeat;
+    background-size: 160px;
+    width: 160px;
+    height: 30px;
+}
+
+.logo-element {
+    height: 40px;
+    background-color: #2D4551;
+    padding: 0px;
+
+}
+
+.logo-element div {
+    background-image: url('/Themes/APValue/Images/Logo_narrow.png');
+    background-repeat: no-repeat;
+    background-size: 60px;
+    width: 60px;
+    height: 40px;
+    margin-top: 18px;
+    margin-left: 5px;
+/*
+    padding: 10px 0px;
+    width: 160px;
+    padding-top: 10px;
+*/
+}
+
+
+.btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .active.btn-primary, .open .btn-primary.dropdown-toggle {
+    background-color: #2D4551;
+    border-color: #2D4551;
+    color: #f3f3f4;
+}
+
+.nav > li > a {
+    font-weight: normal;
+}
+
+.nav > li.active {
+    border-left: 4px solid #fefef4;
+    background-color: #2D4551;
+    color: white;
+
+}
+
+.nav > li.active > a {
+    /*color: #2D4551;*/
+    padding-left: 21px;
+}
+
+.nav-second-level li a {
+    padding: 7px 10px 7px 10px;
+    padding-left: 52px !important;
+}
+
+.dropdown-narrow {
+    padding: 10px 0px 10px 0px;
+}
+
+
+.page-heading {
+    padding-bottom: 5px;
+}
+
+.progress {
+    background-color: #cfcfcf;
+}
+
+.ibox {
+    padding-bottom: 0;
+}
+
+.nav-tabs.nav li.active {
+    background: none;
+}

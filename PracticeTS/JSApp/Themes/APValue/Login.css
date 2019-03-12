@@ -1,0 +1,30 @@
+﻿body {
+}
+
+.full {
+    margin-top: 150px;
+    background: url('Images/Login_background.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.login-logo-image {
+    margin-top: 25px;
+    height: 75px;
+}
+
+.ibox-content-left {
+    border-width: 0px;
+    background-color: transparent;
+    min-height: 475px;
+
+    color: #FEFEFE;
+}
+
+.ibox-content-right {
+    min-height: 475px;
+
+    border-radius: 4px;
+}

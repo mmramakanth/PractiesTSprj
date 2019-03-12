@@ -1,0 +1,351 @@
+
+/* Page properties */
+@media all and (min-width: 768px) {
+    #page-wrapper {
+        padding-bottom: 75px;
+    }
+}
+
+
+#page-wrapper {
+    min-height: 675px;
+}
+
+.ygg-background {
+    min-height: 675px;
+}
+
+/* Top Navigation */
+.navbar-toggle {
+    margin-right: 35px;
+    border-radius: 0px;
+    border-width: 0px;
+}
+
+.ygg-navbar-top {
+    min-height: auto;
+    /*height: 30px;*/
+    background-color: #474747;
+}
+
+.ygg-navbar-top .nav > li > a {
+    padding: 5px;
+    font-weight: 100;
+    color: #A5A5A5;
+    font-size: 11px;
+}
+
+
+.ygg-navbar-menu {
+    background-color: #373737;
+}
+
+.ygg-navbar-menu .nav {
+    float: right;
+}
+
+.ygg-navbar-menu .nav > li > a {
+    padding-top: 75px;
+    color: white;
+    text-transform: uppercase;
+}
+
+.ygg-navbar-brand {
+    /*background-color: #373737 !important;*/
+}
+
+
+/* Main action bar */
+.main-action-menu {
+    margin-top: 15px;
+}
+
+
+
+.icon-container {
+    background-color: #cce7de;
+    color: #01734b;
+    height: 56px;
+    position: absolute;
+    width: 64px;
+    text-align: center;
+    padding-top: 10px;
+    left: 5px;
+    top: -53px;
+}
+
+.icon-container span {
+    font-size: 10px;
+}
+
+
+/* Dashboard */
+.dashboard {
+    margin-bottom: 50px;
+}
+
+
+/* Label */
+.label-white {
+    background-color: white;
+    border: 1px solid lightgray;
+}
+
+
+/*
+  form-control-search
+*/
+.form-control-search {
+    float: left;
+    width: auto;
+    background-color: #F3F3F3;
+    margin-right: 15px;
+}
+
+
+
+
+/*
+    DataTables styling-fix for bootstrap
+*/
+.dataTables_filter {
+    float: right !important;
+}
+
+.dataTables_wrapper {
+    overflow-x: hidden;
+}
+
+.clickable-row {
+    cursor: pointer; 
+    /*cursor: hand;*/
+}
+
+.modal-body .note-editable {
+    max-height: 375px;
+}
+form.submitted input.ng-invalid,
+form.submitted textarea.ng-invalid,
+form.submitted select.ng-invalid {
+  border-color: red;
+}
+.field-validation-error {
+    color: red;
+}
+.error{
+    color: red;
+}
+
+div.role-checkbox input[type='checkbox']{
+    margin-left: 0 !important;
+}
+
+
+
+/*
+    DataTables styling-fix for bootstrap
+*/
+.dataTables_filter {
+    float: right !important;
+}
+
+.dataTables_wrapper {
+    overflow-x: hidden;
+}
+
+.clickable-row {
+    cursor: pointer; 
+    /*cursor: hand;*/
+}
+
+
+/* Sidebar toggle menu item */
+.navbar-minimalize-toggle-normal {
+    display: block;
+}
+
+.navbar-minimalize-toggle-mini {
+    display: none;
+}
+
+.mini-navbar .navbar-minimalize-toggle-normal {
+    display: none !important;
+}
+
+.mini-navbar .navbar-minimalize-toggle-mini {
+    display: block !important;
+}
+
+[ng-cloak], [data-ng-cloak]
+{
+  display: none !important;
+}
+
+/**Loading spinner*/
+div.load-progress {
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+  z-index: 99999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+  background-color: lightgray;
+}
+div.load-progress span.fa-spinner {
+  display: table;
+  margin: 100px auto;
+  opacity: 1;
+}
+.fa-spinner1 {
+  position: fixed;
+  z-index: 99999;
+  height: 2em;
+  width: 2em;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+/* Transparent Overlay */
+.fa-spinner1:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 99999;
+}
+/* :not(:required) hides these rules from IE9 and below */
+.fa-spinner1:not(:required) {
+  /* hide "loading..." text */
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+.fa-spinner1:not(:required):after {
+  content: '';
+  display: block;
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.5em;
+  -webkit-animation: spinner 1500ms infinite linear;
+  -moz-animation: spinner 1500ms infinite linear;
+  -ms-animation: spinner 1500ms infinite linear;
+  -o-animation: spinner 1500ms infinite linear;
+  animation: spinner 1500ms infinite linear;
+  border-radius: 0.5em;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+  box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+}
+/* Animation */
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/** Custom uib date picker styling*/
+div.date-picker-input-group{
+    margin-bottom:-2px !important;
+    margin-left: 0 !important;
+    padding-right:0 !important;
+    padding-left: 0 !important;
+}
+.checkbox-inverse input[type=checkbox]{
+    margin-left: 0 !important;
+}
+
+div.div-content{
+    padding-left:20px;
+}
+
+.controls-fixed{
+  top:0;
+  position:fixed;
+  margin-right: 30px;
+}
+
+div.doghnut-container{
+    width:300px;
+    margin-left:auto !important;
+    margin-right:auto !important;
+}
+
+div.focus-area-taxon{
+    margin-bottom:5px;
+}
+
+div.focus-area-taxon span.focus-area-taxon-remove{
+    cursor:pointer;
+}

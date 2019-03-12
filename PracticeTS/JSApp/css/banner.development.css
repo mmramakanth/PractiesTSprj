@@ -1,0 +1,128 @@
+﻿.environmentBanner {
+    position: fixed;
+    -ms-transform: rotate(-40deg); /* IE 9 */
+    -webkit-transform: rotate(-40deg); /* Chrome, Safari, Opera */
+    -moz-transform: rotate(-40deg);
+    -o-transform: rotate(-40deg);
+    transform: rotate(-40deg);
+    width: 375px;
+    border: 2px solid white;
+    color: white;
+    text-align: center;
+    left: -130px;
+    top: 30px;
+    z-index: 10000;
+    cursor: default;
+}
+
+    .environmentBanner span {
+        line-height: 26px;
+        font-size: 18px;
+        width: 150px;
+        overflow: hidden;
+        -moz-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        display: inline-block;
+        margin-bottom: -2px;
+        white-space: nowrap;
+    }
+
+.corner-ribbon {
+    width: 300px;
+    background: #e43;
+    position: absolute;
+    top: 50px;
+    left: -75px;
+    text-align: center;
+    line-height: 40px;
+    letter-spacing: 1px;
+    color: #f0f0f0;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    font-size: 18px;
+    z-index: 1000;
+}
+
+    /* Custom styles */
+    .corner-ribbon.sticky {
+        position: fixed;
+    }
+
+    .corner-ribbon.shadow {
+        box-shadow: 0 0 3px rgba(0,0,0,.3);
+    }
+
+    /* Different positions */
+    .corner-ribbon.top-left {
+        top: 50px;
+        left: -75px;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+    }
+
+    .corner-ribbon.top-right {
+        top: 50px;
+        right: -75px;
+        left: auto;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+    }
+
+    .corner-ribbon.bottom-left {
+        top: auto;
+        bottom: 50px;
+        left: -75px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+    }
+
+    .corner-ribbon.bottom-right {
+        top: auto;
+        right: -75px;
+        bottom: 50px;
+        left: auto;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+    }
+
+    /* Colors */
+    .corner-ribbon.white {
+        background: #f0f0f0;
+        color: #555;
+    }
+
+    .corner-ribbon.black {
+        background: #333;
+    }
+
+    .corner-ribbon.grey {
+        background: #999;
+    }
+
+    .corner-ribbon.blue {
+        background: #39d;
+    }
+
+    .corner-ribbon.green {
+        background: #2c7;
+    }
+
+    .corner-ribbon.turquoise {
+        background: #1b9;
+    }
+
+    .corner-ribbon.purple {
+        background: #95b;
+    }
+
+    .corner-ribbon.red {
+        background: #e43;
+    }
+
+    .corner-ribbon.orange {
+        background: #e82;
+    }
+
+    .corner-ribbon.yellow {
+        background: #ec0;
+    }
